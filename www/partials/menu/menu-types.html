@@ -1,0 +1,5 @@
+<section class="menu-types-wrapper" ng-swipe-right="swipeRight('cart')" ng-swipe-left="swipeLeft('home')">
+    <section class="food-types-container">
+        <a href="#/menu-items/:menu_type_id={{ menu_type.id }}/:menu_type_name={{ menu_type.name }}" ng-click="setSwiper()" ng-repeat="menu_type in menu_types"><section class="container" ng-style="{'background': 'url('+menu_type.image_name+') no-repeat', 'background-size': 'contain', 'background-position': 'center center'}"><p>{{menu_type.name}}</p></section></a>
+    </section>
+</section>

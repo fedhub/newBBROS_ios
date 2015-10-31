@@ -1,0 +1,16 @@
+<section class="menu-additions-wrapper" id="menu-additions-wrapper" ng-swipe-left="swipeLeft()">
+    <section class="additions-type-container" id="{{type.id}}" ng-repeat="type in additions">
+        <section class="title"><p>{{ type.name }}</p></section>
+        <section class="container" id="addition-item-{{item.id}}" ng-click="selected(type.id,item.id)" ng-repeat="item in type.addition_items">
+            <section class="header">
+                <section class="top">
+                    <section class="item-title"><p>{{ item.name }}</p></section>
+                    <section class="price"><p>{{ item.price }}  &#8362;</p></section>
+                </section>
+                <section class="description"><p>{{ item.description }}</p></section>
+            </section>
+            <section class="image" ng-style="{'background': 'url('+item.image+') no-repeat', 'background-size': 'contain', 'background-position': 'center center'}"><section class="selected"><p class="flaticon-good1"></p></section></section>
+        </section>
+    </section>
+    <section class="approve-menu" id="approve-menu" ng-click="approve(additions)"><p>המשך</p></section>
+</section>

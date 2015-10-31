@@ -1,0 +1,41 @@
+.menu-types-wrapper{
+  //position: fixed;
+  width: 100%;
+  min-height: 100%;
+  .food-types-container{
+    width: 100%;
+    margin: 5px auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  .container{
+    @include size(48%, 170px);
+    box-shadow: 0px 0px 5px -4px green;
+    border: solid 1px rgba(green, 0.5);
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 2px;
+    overflow: hidden;
+    p{
+      text-align: center;
+      text-shadow: -1px 1px $bg-color;
+      color: $txt-color;
+      font-size: 16px;
+      background-color: rgba(green, 0.1);
+      box-shadow: 2px 25px 100px 0px rgba(green, 0.5);
+    }
+  }
+}
+
+@include small_landscape(){
+  .menu-types-wrapper{
+    margin-top: 45px;
+    .container{
+      @include size(48%, 300px);
+      p{
+        font-size: 18px;
+      }
+    }
+  }
+}

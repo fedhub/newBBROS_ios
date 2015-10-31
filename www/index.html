@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />-->
+    <script src="https://www.best-biss.com/socket.io/socket.io.js"></script>
+    <!--<script src="http://localhost:3000/socket.io/socket.io.js"></script>-->
+    <title>Ordering System</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="includes/css/stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="includes/css/stylesheets/flaticon.css">
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" data-semver="1.0.7"></script>
+
+    <script type='application/javascript' src='includes/javascript/ftlabs-fastclick-a22efe3/lib/fastclick.js'></script>
+    <script src="https://rawgit.com/nnnick/Chart.js/master/Chart.min.js"></script>
+    <script src="includes/javascript/javascript.js"></script>
+    <script src="includes/javascript/forms.js"></script>
+    <script src="includes/javascript/app.js"></script>
+    <script src="includes/javascript/services.js"></script>
+    <script src="includes/javascript/header.js"></script>
+    <script src="includes/javascript/home.js"></script>
+    <script src="includes/javascript/last-orders.js"></script>
+    <script src="includes/javascript/orders-library.js"></script>
+    <script src="includes/javascript/library.js"></script>
+    <script src="includes/javascript/menu.js"></script>
+    <script src="includes/javascript/cart.js"></script>
+    <script src="includes/javascript/order-approve.js"></script>
+    <script src="includes/javascript/status.js"></script>
+    <script src="includes/javascript/success.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+<section class="wrapper">
+    <section class="blur"></section>
+    <section class="spinner"></section>
+    <section id="screen-message" class="screen-message"><section class="container"><p></p></section></section>
+    <section id="customer-type" class="lightbox" forms>
+        <section class="container" id="customer-type-cont">
+            <section class="close" id="close-type"><p class="flaticon-close32"></p></section>
+            <section class="type-cont" ng-click="customer_type('private')"><p>לקוח פרטי</p></section>
+            <section class="type-cont" ng-click="customer_type('business')"><p>לקוח עסקי</p></section>
+        </section>
+    </section>
+    <section class="comments-lightbox">
+        <section class="comments-container">
+            <section class="comments-title"><p>הוסף הערות</p></section>
+            <section class="comments-content">
+                <textarea maxlength="200" placeholder="(אופציונלי) עם \ בלי \ יצירת קשר \ עדכון כתובת"></textarea>
+            </section>
+            <section class="comments-approve-cont"><section class="comments-approve" ng-click="update_comments()"><p>המשך</p></section></section>
+        </section>
+    </section>
+    <section id="lightbox" class="lightbox" forms>
+        <section class="container">
+            <section class="close" id="close"><p class="flaticon-close32"></p></section>
+            <section class="title"><p>{{ title }}</p></section>
+            <section class="content">
+                <form class="form" id="sign-up-form" ng-repeat="form_item in form_items">
+                    <section class="form-item" id="{{ form_item.id }}">
+                        <section class="required"><p>{{ form_item.required }}</p></section>
+                        <section class="detail-label"><p>{{ form_item.label }}</p></section>
+                        <section class="detail-input"><input type="{{ form_item.type }}" value="{{ form_item.value }}" maxlength="{{ form_item.max_length }}"></section>
+                        <section class="validation"><p></p></section>
+                    </section>
+                </form>
+                <section class="indirect"><p ng-click="form_request('sign-up')">לא רשום? הרשם עכשיו</p></section>
+                <section class="approve" ng-click="form_approved()"><p>אישור</p></section>
+            </section>
+        </section>
+    </section>
+    <section class="mobile-menu-container" id="menu-slide" forms>
+        <section class="connected"><p class="flaticon-network60"></p><p>{{ signed_up }}</p></section>
+        <section class="slide-item" ng-click="form_request('log-in')"><p class="flaticon-login"></p><p>התחבר</p></section>
+        <div class="hr"></div>
+        <section class="slide-item" ng-click="form_request('log-out')"><p class="flaticon-symbol21"></p><p>התנתק</p></section>
+        <div class="hr"></div>
+        <section class="slide-item" ng-click="form_request('sign-up')"><p class="flaticon-add89"></p><p>הרשם</p></section>
+        <div class="hr"></div>
+        <section class="slide-item" ng-click="form_request('update-details')"><p class="flaticon-edit45" id="edit-icon"></p><p>עדכון פרטים אישיים</p></section>
+        <div class="hr"></div>
+        <section class="slide-item store-details"><p>סוקולוב 58, הרצליה</p></section>
+        <section class="slide-item store-details"><a href="tel:09-9502396">09-9502396</a></section>
+        <!--<section class="social-cont"><img id="social-icon" src="data:image/png;base64,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"/></section>-->
+    </section>
+    <header ng-controller="header">
+        <section class="top-header">
+            <section class="logo"></section>
+            <section id="header-title" class="title"><p>{{ title }}</p></section>
+            <section class="hamburger" ng-click="slideMenu()">
+                <p class="container flaticon-menu45"></p>
+            </section>
+        </section>
+        <section class="bottom-header">
+            <nav>
+                <ul>
+                    <li id="main"><a ng-href="#/home" ng-click="setTitle('ראשי',1)"><i class="flaticon-building120"></i></a></li>
+                    <li id="menu"><a ng-href="#/menu-types" ng-click="setTitle('תפריט',2)"><i class="flaticon-list19"></i></a></li>
+                    <li id="cart"><a ng-href="#/cart" ng-click="setTitle('הסל שלי',3)"><i class="flaticon-shoppingcart14"><section class="cart-size"><p></p></section></i></a></li>
+                    <li id="status"><a ng-href="#/status" ng-click="setTitle('סטטוס הזמנה',4)"><i class="flaticon-hourglass"></i></a></li>
+                    <!--<li id="about" class="about-icon"><a href="#" ></a></li>-->
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div ng-view forms style="width: 100%; height: 85%; position: absolute; top: 15%"></div>
+</section>
+</body>
+</html>

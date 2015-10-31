@@ -1,0 +1,58 @@
+<section class="library-wrapper" ng-swipe-right="swipeRight('menu-types')" ng-swipe-left="swipeLeft('home')">
+
+    <section id="cart-item-info" class="lightbox" data="item">
+        <section class="container">
+            <section class="close" ng-click="close_info()"><p class="flaticon-close32"></p></section>
+            <section class="title"><p>{{ item.name }} - {{ item.price }} &#8362;</p></section>
+            <section class="content" id="item-info2">
+                <section class="component">
+                    <section class="comp-title"><p>תיאור</p></section>
+                    <section class="comp-info">{{ item.description }}</section>
+                </section>
+                <section class="component" ng-repeat="type in item.addition_types">
+                    <section class="comp-title"><p>{{ type.name  }}</p></section>
+                    <section class="comp-info" ng-repeat="addition_item in type.addition_items">{{ addition_item.name }} - <span style="color: brown;">{{ addition_item.price }} &#8362;</span></section>
+                </section>
+                <section class="component">
+                    <section class="comp-title"><p>הערות</p></section>
+                    <section class="comp-info">{{ comments }}</section>
+                </section>
+            </section>
+            <footer class="item-info-footer"><p>סה"כ: {{ item.total_price }}  &#8362;</p></footer>
+        </section>
+    </section>
+
+    <section id="delete-item" class="lightbox" data="item_id">
+        <section class="container" id="del-cont">
+            <section class="close" ng-click="close_delete_window()"><p class="flaticon-close32"></p></section>
+            <section class="title"><p>מחיקת פריט מהספרייה</p></section>
+            <section class="content" id="item-delete">
+                <p>האם אתה בטוח שאתה רוצה למחוק את הפריט מהספרייה?</p>
+            </section>
+            <section class="approve" id="del-approval" ng-click="deletion_approved(item_id)"><p>אישור</p></section>
+        </section>
+    </section>
+
+    <section class="folder-header"><p>{{ name }}</p></section>
+    <section class="folder-wrapper">
+        <section class="details-cont">
+            <section class="description-cont"><p>{{ description }}</p></section>
+            <section class="date-cont">
+                <section class="creation-date"><p>{{ date }}</p></section>
+                <section class="creation-time"><p>{{ time }}</p></section>
+            </section>
+        </section>
+        <section class="add-to-library" ng-click="add_to_library()"><p class="flaticon-plus25"></p></section>
+        <section class="library-item" ng-click="info(item.item_json)" ng-repeat="item in library">
+            <section class="name-cont"><p>{{ item.item_json.name }}</p></section>
+            <section class="add-to-cart-cont" ng-click="add_item_to_cart(item.item_json); $event.stopPropagation()"><p class="flaticon-shopping100"></p></section>
+            <section class="info-cont"><p class="flaticon-info28"></p></section>
+            <section class="delete-cont" ng-click="delete_item(item.id); $event.stopPropagation()"><p class="flaticon-delete96"></p></section>
+            <section class="price-cont"><p>{{item.item_json.total_price}} &#8362;</p></section>
+        </section>
+    </section>
+</section>
+
+<!--זה האוכל שאני אוכל אחרי המכון כי הוא טוב לשריר-->
+
+<!--  אחרי המכון   -->

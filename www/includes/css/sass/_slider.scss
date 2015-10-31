@@ -1,0 +1,114 @@
+.blur{
+  display: none;
+  @include size(100%, 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(#000, 0.4);
+  transition: transform .40s ease-in-out;
+  -webkit-transition: -webkit-transform .40s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  z-index: 10498;
+}
+.mobile-menu-container {
+  display: block;
+  @include position(fixed, 7.5%, -75%);
+  width: 75%;
+  height: 92.5%;
+  background: rgba($bg-color, 1);
+  box-shadow: inset -2px 0 2px rgba($txt-color, .35);
+  transition: transform .40s ease-in-out;
+  -webkit-transition: -webkit-transform .40s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  z-index: 10500;
+  .connected{
+    @include size(100%, 8%);
+    background-color: $txt-color;
+    box-shadow: 0 2px 40px -5px #FFF;
+    display: table;
+    p{
+      display: table-cell;
+      vertical-align: middle;
+      color: silver;
+    }
+    p:nth-of-type(1){
+      width: 50px;
+      padding-right: 13px;
+    }
+    p:nth-of-type(2){
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+  .slide-item{
+    @include size(90%, 8%);
+    display: table;
+    margin: 0 auto;
+    color: #333;
+    p{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    p:nth-of-type(1){
+      width: 50px;
+    }
+  }
+  .hr{
+    border: 0;
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+    background: $txt-color;
+    background-image: -webkit-linear-gradient(left, $txt-color, $txt-color, $txt-color);
+    background-image:    -moz-linear-gradient(left, $txt-color, $txt-color, $txt-color);
+    background-image:     -ms-linear-gradient(left, $txt-color, $txt-color, $txt-color);
+    background-image:      -o-linear-gradient(left, $txt-color, $txt-color, $txt-color);
+  }
+  #edit-icon{
+    color: #000 !important;
+    font-size: 23px !important;
+  }
+  .social-cont{
+    width: 50px;
+    margin: 20px auto;
+  }
+  #social-icon{
+    opacity: 0.9;
+    @include size(50px, 50px);
+  }
+}
+.right{
+  transform: translate3d( 100%, 0, 0 ); /* X, Y, Z */
+  -webkit-transform: translate3d( 100%, 0, 0 );
+}
+.store-details{
+  text-align: center;
+  a{
+    color: #333;
+    font-weight: bold;
+  }
+}
+
+@include small_landscape(){
+  .mobile-menu-container {
+    @include position(fixed, 90px, -50%);
+    width: 50%;
+    height: 100%;
+    .connected{
+      @include size(100%, 40px);
+    }
+    .slide-item{
+      @include size(90%, 40px);
+    }
+    .social-cont{
+      width: 50px;
+      margin: 10px auto;
+    }
+    #social-icon{
+      opacity: 0.9;
+      @include size(45px, 45px);
+    }
+  }
+}

@@ -1,0 +1,142 @@
+header{
+  position: fixed;
+  z-index: 9500;
+  background-color: #FFF;
+  @include size(100%, 15%);
+  .top-header{
+    @include size(100%, 48%);
+    display: table;
+  }
+  .logo{
+    display: table-cell;
+    @include size(45%, 100%);
+    background: url('https://www.best-biss.com/images/mobile_logo.png') no-repeat center center;
+    background-size: contain;
+  }
+  .title{
+    display: table-cell;
+    vertical-align: middle;
+    @include size(40%, 100%);
+    p{
+      text-align: center;
+      text-shadow: -2px 1px $bg-color;
+      color: $txt-color;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 18px;
+    }
+  }
+  .hamburger{
+    display: table-cell;
+    vertical-align: middle;
+    @include size(15%, 100%);
+    .container{
+      //height: 20px;
+      margin-top: 5px;
+      text-align: center;
+      &.rotate-right{
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+      }
+      &.rotate-left{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+      }
+      &.rotate-right, &.rotate-left{
+        -webkit-transition-property: -webkit-transform;
+        transition-property: transform;
+        -webkit-transition-duration: .40s;
+        transition-duration: .40s;
+      }
+    }
+  }
+  .bottom-header{
+    @include size(100%, 52%);
+    background-color: $bg-color;
+    box-shadow: 0 0 1px 1px rgba(#333, 0.8);
+  }
+  nav{
+    @include size(100%, 100%);
+  }
+  ul{
+    @include size(100%, 100%);
+    display: table;
+  }
+  li{
+    @include size(20%, 100%);
+    color: $txt-color;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  a{
+    text-decoration: none;
+    color: #002E02;
+    @include size(100%, 100%);
+    position: relative;
+    i{
+      padding-top: 2px;
+      font-size: 40px !important;
+    }
+  }
+//  .about-icon{
+//    max-width:            64px;
+//    max-height:           64px;
+//    background: url('data:image/png;base64,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') no-repeat center center;
+//    background-size: 32px 32px;
+//  }
+}
+
+// Smartphone vertical
+@include small_portrait(){
+  header{
+    .logo{
+
+    }
+  }
+}
+
+@include medium_portrait(){
+  header{
+    background-color: blue;
+  }
+}
+
+.cart-size{
+  display: none;
+  @include size(15px,15px);
+  position: absolute;
+  top: -13px;
+  left: -8px;
+  border-radius: 100px;
+  border: solid 1px ghostwhite;
+  background-color: #FFA500;
+  box-shadow: 0px 0px 8px -2px #000;
+  p{
+    line-height: 16px;
+    padding-right: 2px;
+    font-size: 11px;
+    text-align: center;
+    font-weight: bold;
+    color: #002E02;
+  }
+
+}
+
+@include small_landscape(){
+  header{
+    @include size(100%, 90px);
+    .logo{
+      @include size(22%, 100%);
+    }
+    .top-header .title{
+      @include size(68%, 100%);
+      p{
+        font-size: 28px;
+      }
+    }
+    .hamburger{
+      @include size(10%, 100%);
+    }
+  }
+}

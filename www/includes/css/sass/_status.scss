@@ -1,0 +1,64 @@
+.status-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  //position: fixed;
+  .chart-cont{
+    @include size(200px, 200px);
+    margin: 30% auto;
+    position: relative;
+  }
+  #myChart{
+    @include size(100%, 100%);
+    border-radius: 100px;
+    box-shadow: 0 0 5px 2px rgba(#333, 0.9);
+  }
+  .text-plugin{
+    display: table;
+    position: absolute;
+    text-align: center;
+    @include size(70px, 70px);
+    p{
+      @include cell-settings();
+      font-weight: bold;
+      font-size: 15px;
+      word-spacing: 70px;
+    }
+  }
+  .text-plugin:nth-of-type(1){
+    top: 30px;
+    left: 30px;
+  }
+  .text-plugin:nth-of-type(2){
+    top: 30px;
+    right: 30px;
+  }
+  .text-plugin:nth-of-type(3){
+    bottom: 30px;
+    left: 30px;
+  }
+  .text-plugin:nth-of-type(4){
+    bottom: 30px;
+    right: 30px;
+  }
+}
+.status-bg{
+  background: url('../../images/plate.jpeg') no-repeat;
+  background-size: contain;
+  background-position: center 20%;
+  background-color: #D8DDCD;
+  opacity: 1;
+}
+
+@include small_landscape() {
+  .status-wrapper {
+    height: auto;
+  }
+  .status-bg{
+    background: url('../../images/plate.jpeg') no-repeat;
+    background-size: 60% 60%;
+    background-position: center 20%;
+    background-color: #D8DDCD;
+    opacity: 1;
+  }
+}

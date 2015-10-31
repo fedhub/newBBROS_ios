@@ -1,0 +1,36 @@
+<section class="last-orders-wrapper" ng-swipe-right="swipeRight('menu-types')" ng-swipe-left="swipeLeft('home')">
+
+    <section id="cart-item-info" class="lightbox" data="item">
+        <section class="container">
+            <section class="close" ng-click="close_info()"><p class="flaticon-close32"></p></section>
+            <section class="title"><p>{{ item.name }} - {{ item.price }} &#8362;</p></section>
+            <section class="content" id="item-info">
+                <section class="component">
+                    <section class="comp-title"><p>תיאור</p></section>
+                    <section class="comp-info">{{ item.description }}</section>
+                </section>
+                <section class="component" ng-repeat="type in item.addition_types">
+                    <section class="comp-title"><p>{{ type.name  }}</p></section>
+                    <section class="comp-info" ng-repeat="addition_item in type.addition_items">{{ addition_item.name }} - <span style="color: brown;">{{ addition_item.price }} &#8362;</span></section>
+                </section>
+                <section class="component">
+                    <section class="comp-title"><p>הערות</p></section>
+                    <section class="comp-info">{{ comments }}</section>
+                </section>
+            </section>
+            <footer class="item-info-footer"><p>סה"כ: {{ item.total_price }}  &#8362;</p></footer>
+        </section>
+    </section>
+
+    <section class="order-container" ng-repeat="order_info in last_orders">
+        <section class="cart-item" ng-click="info(cart_item)" ng-repeat="cart_item in order_info.my_cart">
+            <section class="title"><p>{{ cart_item.name }}</p></section>
+            <section class="info"><p class="flaticon-info28"></p></section>
+        </section>
+        <section class="labels-cont">
+            <section class="add-to-cart" ng-click="add_to_cart(order_info)"><p class="flaticon-shopping100"></p></section>
+            <section class="order-date"><p>{{ order_info.order_date }}</p></section>
+            <section class="order-time"><p>{{ order_info.order_time }}</p></section>
+        </section>
+    </section>
+</section>

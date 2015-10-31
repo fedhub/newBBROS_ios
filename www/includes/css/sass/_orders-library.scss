@@ -1,0 +1,95 @@
+.orders-library-wrapper{
+  //display: block;
+  //position: fixed;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  text-align: center;
+  background: rgba(#97A778, 0.2);
+  .library-cont{
+    display: inline-block;
+    margin: 3px;
+    width: 170px;
+    margin-top: 20px;
+    height: 136px;
+    line-height: 130px;
+    text-shadow: -1px -1px 5px #222;
+    position: relative;
+  }
+//  .library-cont{
+//    display: inline-block;
+//    width: 155px;
+//    margin-top: 5px;
+//    height: 130px;
+//    line-height: 130px;
+//    text-shadow: -1px -1px 5px #222;
+//    position: relative;
+//  }
+  .name-cont{
+    height: 35px;
+    width: 88%;
+    margin: 0 auto;
+    background: rgba(51, 51, 51, 0.2);
+    position: absolute;
+    bottom: 16px;
+    right: 10px;
+    line-height: 35px;
+    p{
+      font-size: 16px;
+      position: relative;
+      font-weight: bold;
+      vertical-align: middle;
+      color: rgba(#333, 0.9);
+      text-shadow: none;
+    }
+  }
+  .adjust{
+    height: 120px;
+    line-height: 120px;
+  }
+  .options-cont{
+    width: 85%;
+    height: 45px;
+    position: absolute;
+    top: 35px;
+    right: 13px;
+    display: table;
+  }
+  .creation-date{
+    width: 47px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    p{
+      font-size: 11px;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: bold;
+      text-shadow: none;
+    }
+  }
+  .option{
+    display: table-cell;
+    border-radius: 100px;
+    line-height: 45px;
+    background: rgba(51, 51, 51, 0.2);
+    p{
+      vertical-align: middle;
+      text-align: center;
+      text-shadow: none;
+      font-size: 25px;
+    }
+  }
+  #add-library{
+    display: none;
+    color: rgba(#333, 0.2);
+  }
+}
+
+@include small_landscape() {
+  .orders-library-wrapper{
+    margin-top: 45px;
+  }
+}

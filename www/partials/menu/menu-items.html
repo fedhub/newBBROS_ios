@@ -1,0 +1,16 @@
+<section class="menu-items-wrapper" ng-swipe-left="swipeLeft('menu-types')" ng-swipe-right="swipeRight('cart')">
+    <section class="food-items-container">
+        <a href="#/menu-additions/:menu_type_id={{ menu_item.food_type_id }}/:menu_item_id={{ menu_item.id }}/:menu_item_name={{ menu_item.name }}" ng-click="selected(menu_item)" ng-repeat="menu_item in menu_items">
+            <section class="container">
+                <section class="right-cont" ng-style="{'background': 'url('+menu_item.image_name+') no-repeat', 'background-size': 'contain', 'background-position': 'center center'}"></section>
+                <section class="center-cont">
+                    <section class="title"><p>{{ menu_item.name }}</p></section>
+                    <section class="description"><p>{{ menu_item.description }}</p></section>
+                </section>
+                <section class="left-cont">
+                    <section class="price"><p>{{ menu_item.price }} &#8362;</p></section>
+                </section>
+            </section>
+        </a>
+    </section>
+</section>

@@ -1,0 +1,254 @@
+.lightbox {
+  display: none;
+  @include position(fixed, 0, 0);
+  @include size(100%, 100%);
+  background-color: rgba(#fff, 0.8);
+  z-index: 12000;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .container{
+    @include size(85%, 80%);
+    background-color: #FFF;
+    margin: 0 auto;
+    box-shadow: 0px 0px 8px -2px #000;
+    border: 1px solid #B6B6B6;
+    margin-top: 20%;
+    position: relative;
+  }
+  #customer-type-cont{
+    margin-top: 50% !important;
+  }
+  .close{
+    @include size(30px, 30px);
+    position: absolute;
+    top: -15px;
+    right: -14px;
+    background-color: rgba(#fff, 1);
+    border-radius: 100px;
+    p{
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .title{
+    background-color: #FFF;
+    float: right;
+    display: table;
+//    -moz-box-shadow: 0px 2px 13px #000;
+//    -webkit-box-shadow: 0px 2px 13px #000;
+//    box-shadow: 0px 2px 13px #000;
+    @include size(100%, 33px);
+    p{
+      @include cell-settings();
+      text-shadow: -2px 1px $bg-color;
+      color: $txt-color;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 25px;
+    }
+  }
+  .content{
+    background-color: #FFF;
+    @include size(100%, 307px);
+    overflow: auto;
+    float: right;
+  }
+  .form{
+    width: 95%;
+    margin: 0 auto;
+    .form-item{
+      @include size(100%, 35px);
+      section{
+        float: right;
+        display: table;
+      }
+    }
+    .required{
+      @include size(4%, 100%);
+      p{
+        @include cell-settings();
+      }
+    }
+    .detail-label{
+      @include size(32%, 100%);
+      p{
+        font-size: 16px;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    .detail-input{
+      @include size(56%, 100%);
+      input, textarea{
+        @include size(97%, 90%);
+        border: 1px solid rgba(#333, 0.3);
+        margin-top: 2px;
+        padding-right: 5px;
+        font-size: 16px;
+      }
+    }
+    .validation{
+      @include size(8%, 100%);
+      p{
+        display: table-cell;
+        font-size: 18px;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+  }
+  .indirect{
+    font-size: 16px;
+    color: blue;
+    text-decoration: underline;
+    margin-top: 10px;
+    text-align: center;
+    display: none;
+  }
+}
+
+.approve {
+  @include size(90px, 30px);
+  background-color: green;
+  margin: 10px auto;
+  box-shadow: 0px 0px 8px -2px #000;
+  display: table;
+  p{
+    @include cell-settings();
+    color: #FFF;
+  }
+}
+
+#customer-type{
+  .container{
+    @include size(120px, 150px);
+    background-color: #FFF;
+    margin: 0 auto;
+    box-shadow: 0px 0px 8px -2px #000;
+    border: 1px solid #B6B6B6;
+    margin-top: 30%;
+    position: relative;
+  }
+  .type-cont{
+    @include size(90%, 40%);
+    margin: 10px auto;
+    box-shadow: 0 0 1px 1px rgba(#333, 0.5);
+    display: table;
+    p{
+      @include cell-settings();
+      font-weight: bold;
+      color: rgba(#333, 0.8);
+      font-size: 15px;
+    }
+  }
+  #close-type{
+    position: absolute;
+    top: -25px;
+    right: -20px;
+  }
+}
+
+@include small_landscape(){
+  #customer-type .container{
+    margin-top: 15% !important;
+  }
+  .lightbox{
+    .container{
+      @include size(50%, 420px);
+      margin-top: 5%;
+      margin-bottom: 20px;
+      position: relative;
+    }
+  }
+}
+
+.comments-lightbox {
+  display: none;
+  @include position(fixed, 0, 0);
+  @include size(100%, 100%);
+  background-color: rgba(#fff, 0.8);
+  z-index: 12000;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.comments-container{
+  @include size(85%, 80%);
+  background-color: #FFF;
+  margin: 0 auto;
+  box-shadow: 0px 0px 8px -2px #000;
+  border: 1px solid #B6B6B6;
+  margin-top: 20%;
+  position: relative;
+}
+.comments-title{
+  background-color: #FFF;
+  float: right;
+  display: table;
+  //    -moz-box-shadow: 0px 2px 13px #000;
+  //    -webkit-box-shadow: 0px 2px 13px #000;
+  //    box-shadow: 0px 2px 13px #000;
+  @include size(100%, 15%);
+  p{
+    @include cell-settings();
+    text-shadow: -2px 1px $bg-color;
+    color: $txt-color;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 25px;
+  }
+}
+.comments-content{
+  background-color: #FFF;
+  @include size(100%, 65%);
+  overflow: auto;
+  float: right;
+  textarea{
+    @include size(92%, 92%);
+    font-family: Arial;
+    font-size: 15px;
+    margin-right: 6px;
+    border: 1px solid rgba(#333,0.5);
+    padding: 5px;
+
+  }
+}
+.comments-approve-cont{
+  @include size(100%,20%);
+  float: right;
+}
+.comments-approve{
+  @include size(90px, 30px);
+  background-color: green;
+  margin: 30px auto;
+  box-shadow: 0px 0px 8px -2px #000;
+  display: table;
+  p{
+    @include cell-settings();
+    color: #FFF;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

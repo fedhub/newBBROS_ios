@@ -1,0 +1,9 @@
+.spinner{
+  @include size(100%, 75%);
+  position: fixed;
+  top: 15%;
+  left: 0;
+  display: none;
+  background: url('../../images/ajax-loader2.gif') no-repeat center center;
+  z-index: 15000;
+}

@@ -1,0 +1,72 @@
+.home-wrapper{
+  @include size(100%, 96%);
+  display: block;
+  //background: rgba(#97A778, 0.1);
+//  .suggested-container{
+//    @include size(97%, 60%);
+//    margin: 0 auto;
+//    text-align: center;
+//  }
+//  .suggested-box{
+//    @include size(45%, 90%);
+//    display: inline-block;
+//    vertical-align: middle;
+//    margin: 5px;
+//    margin-top: 15px;
+//    box-shadow: 0px 0px 1px 0px #000;
+//  }
+  .options-cont{
+    @include size(97%, 100%);
+    margin: 0 auto;
+    padding-top: 15px;
+    overflow: hidden;
+  }
+  .option-box{
+    @include size(95%, 29%);
+    margin: 0 auto;
+//    display: inline-block;
+//    vertical-align: middle;
+//    margin: 1px;
+    box-shadow: 0px 0px 1px 0px #000;
+    p{
+      font-family: Guttman Yad-Brush;
+      font-size: 22px;
+      color: #FFF;
+      line-height: 150px;
+      padding-right: 20px;
+    }
+  }
+  .space{
+    @include size(100%, 25px);
+  }
+  #orders-library{
+    background: rgba(#22313F, 0.9) url('../../images/Empty_Bookshelf_128.png') no-repeat left;
+    background-size: 30%;
+  }
+  #last-orders{
+    background: rgba(#795548, 0.9) url('../../images/Sketched_arrows_couple_pointing_down_128.png') no-repeat left;
+    background-size: 30%;
+  }
+  #new-order{
+    background: rgba(#5D4360, 0.9) url('../../images/Open_Menu_128.png') no-repeat left;
+    background-size: 30%;
+  }
+//  #suggested1{
+//    background: url('../../images/suggested1.png') no-repeat center center;
+//    background-size: auto 100%;
+//  }
+//  #suggested2{
+//    background: url('../../images/suggested2.png') no-repeat center center;
+//    background-size: auto 100%;
+//  }
+
+}
+
+@include small_landscape(){
+  .home-wrapper{
+    @include size(100%, 250%);
+    margin-top: 35px;
+  }
+}
+
+
